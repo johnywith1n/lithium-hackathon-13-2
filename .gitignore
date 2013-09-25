@@ -1,0 +1,12 @@
+# Compiled source #
+###################
+*.js
+!public/javascripts/include/**/*.js
+
+# Packages #
+############
+node_modules/*
+
+# Logs #
+############
+*.log

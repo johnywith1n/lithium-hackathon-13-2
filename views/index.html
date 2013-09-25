@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta charset=utf-8 />
+        <title>Real Time Recent Changes</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
+        <link rel="stylesheet" type="text/css"  href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Real Time Recent Changes</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li data-ui-route="/" ng-class="{active: $uiRoute}"><a href="/">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div data-ng-view>
+        </div>
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+        <script type="text/javascript" src="/javascripts/angular/angularapp.js"></script>
+        <script type="text/javascript" src="/javascripts/include/route.js"></script>
+    </body>
+</html>
