@@ -1,7 +1,7 @@
 # Compiled source #
 ###################
 *.js
-!public/javascripts/include/**/*.js
+!public/javascripts/include/*.js
 
 # Packages #
 ############
