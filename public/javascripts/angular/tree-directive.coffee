@@ -153,12 +153,17 @@ create = (jsonSource, div) ->
                            .attr("fill", "none")
         i = 2
         linePoints.shift()
+        linePoints.push points[1]
+        transition = curve.transition().duration(500).attr("d", lineFunction(linePoints)).attr("stroke", colors[i%2])
+                              .attr("stroke-width", 5)
+                             .attr("fill", "none")
+        linePoints.shift()
         linePoints.push points[2]
-        previousCircle = currentCircle
-        currentCircle = d3.select(groupMapping[events[2].board_title]).select('circle')
         transition = curve.transition().duration(1250).attr("d", lineFunction(linePoints)).attr("stroke", colors[i%2])
                               .attr("stroke-width", 5)
                              .attr("fill", "none")
+        previousCircle = currentCircle
+        currentCircle = d3.select(groupMapping[events[2].board_title]).select('circle')
         if events[2].board_title isnt events[1].board_title
           transition = transition.transition().duration(0).each () -> previousCircle.transition().style("fill", "#ffffff")
           transition = transition.transition().duration(0).each () -> currentCircle.transition().style("fill", "red")
@@ -166,14 +171,16 @@ create = (jsonSource, div) ->
         i = 3
         total = points.length
         while i < total
-          console.log i
-          linePoints.shift()
-          linePoints.push points[i]
           previousCircle = currentCircle
           currentCircle = d3.select(groupMapping[events[i].board_title]).select('circle')
           if events[i].board_title isnt events[i-1].board_title
             transition = transition.transition().duration(0).each () -> previousCircle.transition().style("fill", "#ffffff")
             transition = transition.transition().duration(0).each () -> currentCircle.transition().style("fill", "red")
+          linePoints.shift()
+          linePoints.push points[i-1]
+          transition = transition.transition().duration(500).attr("d", lineFunction(linePoints)).attr("stroke", colors[i%2]).attr("stroke-width", 5).attr("fill", "black")
+          linePoints.shift()
+          linePoints.push points[i]
           transition = transition.transition().duration(1250).attr("d", lineFunction(linePoints)).attr("stroke", colors[i%2]).attr("stroke-width", 5).attr("fill", "black")
           i += 1
 
