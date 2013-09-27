@@ -22,6 +22,7 @@ app.use express.methodOverride()
 app.use app.router
 app.use express.static(path.join(__dirname, "public"))
 app.use express.static(path.join(__dirname, "views"))
+app.use express.static(path.join(__dirname, "data"))
 
 # development only
 app.use express.errorHandler()  if "development" is app.get("env")

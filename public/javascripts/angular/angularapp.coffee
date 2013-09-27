@@ -1,10 +1,10 @@
-app = angular.module 'app', ['ngResource', 'ui.route']
+app = angular.module 'app', ['ngResource', 'ui.route', 'tree.directive']
 
 app.config ($routeProvider, $locationProvider) ->
     $routeProvider
     .when('/',
         {
-            templateUrl : "/rc.partial.html",
+            templateUrl : "/index.partial.html",
             controller : "AppCtrl"
         }
     )
@@ -13,5 +13,5 @@ app.config ($routeProvider, $locationProvider) ->
     return
 
 app.controller "AppCtrl", ($scope) ->
-    
+    $scope.chartData = "flare.json"
     return
